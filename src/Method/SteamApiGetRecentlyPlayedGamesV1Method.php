@@ -18,7 +18,7 @@ class SteamApiGetRecentlyPlayedGamesV1Method extends AbstractSteamApiMethod
     /**
      * @var integer|string The SteamID of the account.
      */
-    #[SteamApiArgument('steamid')]
+    #[SteamApiArgument('steamid', true)]
     protected $steamId;
 
     /**
@@ -43,6 +43,7 @@ class SteamApiGetRecentlyPlayedGamesV1Method extends AbstractSteamApiMethod
     }
 
     /**
+     * Get the SteamID of the account.
      * @return int|string
      */
     public function getSteamId(): int|string
@@ -51,6 +52,7 @@ class SteamApiGetRecentlyPlayedGamesV1Method extends AbstractSteamApiMethod
     }
 
     /**
+     * Set the SteamID of the account.
      * @param int|string $steamId
      * @return SteamApiGetRecentlyPlayedGamesV1Method
      */
@@ -61,6 +63,7 @@ class SteamApiGetRecentlyPlayedGamesV1Method extends AbstractSteamApiMethod
     }
 
     /**
+     * Optionally limit to a certain number of games (the number of games a person has played in the last 2 weeks is typically very small)
      * @return int
      */
     public function getCount(): int
@@ -69,6 +72,7 @@ class SteamApiGetRecentlyPlayedGamesV1Method extends AbstractSteamApiMethod
     }
 
     /**
+     * Optionally limit to a certain number of games (the number of games a person has played in the last 2 weeks is typically very small)
      * @param int $count
      * @return SteamApiGetRecentlyPlayedGamesV1Method
      */

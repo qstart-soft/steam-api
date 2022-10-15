@@ -16,17 +16,17 @@ class SteamApiGetNewsForAppV2Method extends AbstractSteamApiMethod
     /**
      * @var integer AppID of the game you want the news of.
      */
-    #[SteamApiArgument('appid')]
-    protected $appid;
+    #[SteamApiArgument('appid', true)]
+    protected $appId;
     /**
      * @var integer How much news enties you want to get returned.
      */
-    #[SteamApiArgument('count')]
+    #[SteamApiArgument('count', true)]
     protected $count;
     /**
      * @var integer Maximum length of each news entry.
      */
-    #[SteamApiArgument('maxlength')]
+    #[SteamApiArgument('maxlength', true)]
     protected $maxlength;
 
     public function getMethodName(): string
@@ -45,24 +45,27 @@ class SteamApiGetNewsForAppV2Method extends AbstractSteamApiMethod
     }
 
     /**
+     * Get AppID of the game you want the news of.
      * @return int
      */
-    public function getAppid(): int
+    public function getAppId(): int
     {
-        return $this->appid;
+        return $this->appId;
     }
 
     /**
-     * @param int $appid
+     * Set AppID of the game you want the news of.
+     * @param int $appId
      * @return SteamApiGetNewsForAppV2Method
      */
-    public function setAppid(int $appid): SteamApiGetNewsForAppV2Method
+    public function setAppId(int $appId): SteamApiGetNewsForAppV2Method
     {
-        $this->appid = $appid;
+        $this->appId = $appId;
         return $this;
     }
 
     /**
+     * Get How much news enties you want to get returned.
      * @return int
      */
     public function getCount(): int
@@ -71,6 +74,7 @@ class SteamApiGetNewsForAppV2Method extends AbstractSteamApiMethod
     }
 
     /**
+     * Set How much news enties you want to get returned.
      * @param int $count
      * @return SteamApiGetNewsForAppV2Method
      */
@@ -81,6 +85,7 @@ class SteamApiGetNewsForAppV2Method extends AbstractSteamApiMethod
     }
 
     /**
+     * Get Maximum length of each news entry.
      * @return int
      */
     public function getMaxlength(): int
@@ -89,6 +94,7 @@ class SteamApiGetNewsForAppV2Method extends AbstractSteamApiMethod
     }
 
     /**
+     * Set Maximum length of each news entry.
      * @param int $maxlength
      * @return SteamApiGetNewsForAppV2Method
      */
@@ -97,5 +103,4 @@ class SteamApiGetNewsForAppV2Method extends AbstractSteamApiMethod
         $this->maxlength = $maxlength;
         return $this;
     }
-
 }

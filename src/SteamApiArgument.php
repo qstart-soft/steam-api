@@ -14,7 +14,8 @@ final class SteamApiArgument
      * @param string $name Attribute name
      */
     public function __construct(
-        private string $name
+        private string $name,
+        private bool $required = false
     ) {
     }
 
@@ -33,6 +34,24 @@ final class SteamApiArgument
     public function setName(string $name): SteamApiArgument
     {
         $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isRequired(): bool
+    {
+        return $this->required;
+    }
+
+    /**
+     * @param bool $required
+     * @return SteamApiArgument
+     */
+    public function setRequired(bool $required): SteamApiArgument
+    {
+        $this->required = $required;
         return $this;
     }
 }
