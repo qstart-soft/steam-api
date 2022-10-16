@@ -43,7 +43,7 @@ $method
     ->setIncludePlayedFreeGames(true)
     ->setAppIdsFilter([552990]);
 
-/** @var Psr\Http\Client\ClientExceptionInterface $response */
+/** @var \Psr\Http\Message\ResponseInterface $response */
 $response = $steamApi->send($method);
 
 // Json response from API
