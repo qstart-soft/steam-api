@@ -27,4 +27,11 @@ interface SteamApiMethodInterface
      * @return string
      */
     public function getApiInterfaceName(): string;
+
+    /**
+     * Output format. json (default), xml or vdf.
+     *
+     * @return string
+     */
+    public function getFormat(): string;
 }

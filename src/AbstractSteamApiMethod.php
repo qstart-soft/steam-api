@@ -11,6 +11,12 @@ use ReflectionProperty;
 abstract class AbstractSteamApiMethod implements SteamApiMethodInterface
 {
     /**
+     * @var string Output format. json (default), xml or vdf.
+     */
+    #[SteamApiArgument('format')]
+    protected string $format = SteamApiFormats::JSON;
+
+    /**
      * Array of arguments
      * @return array
      */
@@ -24,7 +30,13 @@ abstract class AbstractSteamApiMethod implements SteamApiMethodInterface
             foreach ($attributes as $attribute) {
                 /** @var SteamApiArgument $attributeInstance */
                 $attributeInstance = $attribute->newInstance();
-                $arguments[$attributeInstance->getName()] = $reflectionProperty->getValue($this);
+                $value = $reflectionProperty->getValue($this);
+
+                if ($value === null && $attributeInstance->isRequired()) {
+                    throw new \InvalidArgumentException("Required parameter '{$reflectionProperty->getName()}' is missing");
+                }
+
+                $arguments[$attributeInstance->getName()] = $value;
             }
         }
 
@@ -39,5 +51,22 @@ abstract class AbstractSteamApiMethod implements SteamApiMethodInterface
 
     /** @inheritDoc */
     abstract public function getApiInterfaceName(): string;
-}
 
+    /**
+     * @return string
+     */
+    public function getFormat(): string
+    {
+        return $this->format;
+    }
+
+    /**
+     * @param string $format
+     * @return AbstractSteamApiMethod
+     */
+    public function setFormat(string $format): AbstractSteamApiMethod
+    {
+        $this->format = $format;
+        return $this;
+    }
+}

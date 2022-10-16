@@ -17,7 +17,7 @@ class SteamApiGetPlayerSummariesV2Method extends AbstractSteamApiMethod
     /**
      * @var string Comma-delimited list of 64-bit Steam IDs to return profile information for. Up to 100 Steam IDs can be requested.
      */
-    #[SteamApiArgument('steamids')]
+    #[SteamApiArgument('steamids', true)]
     protected $steamIds;
 
     public function getMethodName(): string
@@ -36,6 +36,7 @@ class SteamApiGetPlayerSummariesV2Method extends AbstractSteamApiMethod
     }
 
     /**
+     * Get comma-delimited list of 64-bit Steam IDs to return profile information for. Up to 100 Steam IDs can be requested.
      * @return string
      */
     public function getSteamIds(): string
@@ -44,10 +45,11 @@ class SteamApiGetPlayerSummariesV2Method extends AbstractSteamApiMethod
     }
 
     /**
-     * @param string|array $steamIds
+     * Set list of 64-bit Steam IDs to return profile information for. Up to 100 Steam IDs can be requested.
+     * @param array $steamIds
      * @return SteamApiGetPlayerSummariesV2Method
      */
-    public function setSteamIds(string|array $steamIds): SteamApiGetPlayerSummariesV2Method
+    public function setSteamIds(array $steamIds): SteamApiGetPlayerSummariesV2Method
     {
         $steamIds = is_array($steamIds) ? implode(',', $steamIds) : $steamIds;
         $this->steamIds = $steamIds;

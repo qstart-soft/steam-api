@@ -16,14 +16,14 @@ class SteamApiGetPlayerAchievementsV1Method extends AbstractSteamApiMethod
     /**
      * @var integer|string 64-bit Steam ID to return friend list for.
      */
-    #[SteamApiArgument('steamid')]
+    #[SteamApiArgument('steamid', true)]
     protected $steamId;
 
     /**
      * @var integer The ID for the game you're requesting
      */
-    #[SteamApiArgument('appid')]
-    protected $appid;
+    #[SteamApiArgument('appid', true)]
+    protected $appId;
 
     /**
      * @var string Language. If specified, it will return language data for the requested language.
@@ -47,6 +47,7 @@ class SteamApiGetPlayerAchievementsV1Method extends AbstractSteamApiMethod
     }
 
     /**
+     * Get 64-bit Steam ID to return friend list for.
      * @return int|string
      */
     public function getSteamId(): int|string
@@ -55,6 +56,7 @@ class SteamApiGetPlayerAchievementsV1Method extends AbstractSteamApiMethod
     }
 
     /**
+     * Set 64-bit Steam ID to return friend list for.
      * @param int|string $steamId
      * @return SteamApiGetPlayerAchievementsV1Method
      */
@@ -65,24 +67,27 @@ class SteamApiGetPlayerAchievementsV1Method extends AbstractSteamApiMethod
     }
 
     /**
+     * Get the ID for the game you're requesting
      * @return int
      */
-    public function getAppid(): int
+    public function getAppId(): int
     {
-        return $this->appid;
+        return $this->appId;
     }
 
     /**
-     * @param int $appid
+     * Set the ID for the game you're requesting
+     * @param int $appId
      * @return SteamApiGetPlayerAchievementsV1Method
      */
-    public function setAppid(int $appid): SteamApiGetPlayerAchievementsV1Method
+    public function setAppId(int $appId): SteamApiGetPlayerAchievementsV1Method
     {
-        $this->appid = $appid;
+        $this->appId = $appId;
         return $this;
     }
 
     /**
+     * Get language. If specified, it will return language data for the requested language.
      * @return string
      */
     public function getLanguage(): string
@@ -91,6 +96,7 @@ class SteamApiGetPlayerAchievementsV1Method extends AbstractSteamApiMethod
     }
 
     /**
+     * Set language. If specified, it will return language data for the requested language.
      * @param string $language
      * @return SteamApiGetPlayerAchievementsV1Method
      */

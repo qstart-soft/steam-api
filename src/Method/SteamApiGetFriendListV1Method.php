@@ -19,13 +19,13 @@ class SteamApiGetFriendListV1Method extends AbstractSteamApiMethod
     /**
      * @var integer|string 64-bit Steam ID to return friend list for.
      */
-    #[SteamApiArgument('steamid')]
+    #[SteamApiArgument('steamid', true)]
     protected $steamId;
 
     /**
      * @var string Relationship filter. Possibles values: all, friend.
      */
-    #[SteamApiArgument('relationship')]
+    #[SteamApiArgument('relationship', true)]
     protected $relationship;
 
     public function getMethodName(): string
@@ -44,6 +44,7 @@ class SteamApiGetFriendListV1Method extends AbstractSteamApiMethod
     }
 
     /**
+     * Get 64-bit Steam ID to return friend list for.
      * @return int|string
      */
     public function getSteamId(): int|string
@@ -52,6 +53,7 @@ class SteamApiGetFriendListV1Method extends AbstractSteamApiMethod
     }
 
     /**
+     * Set 64-bit Steam ID to return friend list for.
      * @param int|string $steamId
      * @return SteamApiGetFriendListV1Method
      */
@@ -62,6 +64,7 @@ class SteamApiGetFriendListV1Method extends AbstractSteamApiMethod
     }
 
     /**
+     * Get Relationship filter. Possibles values: all, friend.
      * @return string
      */
     public function getRelationship(): string
@@ -70,6 +73,7 @@ class SteamApiGetFriendListV1Method extends AbstractSteamApiMethod
     }
 
     /**
+     * Set Relationship filter. Possibles values: all, friend.
      * @param string $relationship
      * @return SteamApiGetFriendListV1Method
      */

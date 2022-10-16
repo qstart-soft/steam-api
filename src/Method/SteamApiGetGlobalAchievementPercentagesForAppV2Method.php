@@ -16,7 +16,7 @@ class SteamApiGetGlobalAchievementPercentagesForAppV2Method extends AbstractStea
     /**
      * @var integer AppID of the game you want the news of.
      */
-    #[SteamApiArgument('gameid')]
+    #[SteamApiArgument('gameid', true)]
     protected $gameId;
 
     public function getMethodName(): string
@@ -35,6 +35,7 @@ class SteamApiGetGlobalAchievementPercentagesForAppV2Method extends AbstractStea
     }
 
     /**
+     * Get AppID of the game you want the news of.
      * @return int
      */
     public function getGameId(): int
@@ -43,6 +44,7 @@ class SteamApiGetGlobalAchievementPercentagesForAppV2Method extends AbstractStea
     }
 
     /**
+     * Set AppID of the game you want the news of.
      * @param int $gameId
      * @return SteamApiGetGlobalAchievementPercentagesForAppV2Method
      */

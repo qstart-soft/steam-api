@@ -18,25 +18,25 @@ class SteamApiGetOwnedGamesV1Method extends AbstractSteamApiMethod
     /**
      * @var integer|string 64-bit Steam ID to return friend list for.
      */
-    #[SteamApiArgument('steamid')]
+    #[SteamApiArgument('steamid', true)]
     protected $steamId;
 
     /**
      * @var boolean Include game name and logo information in the output. The default is to return appids only.
      */
-    #[SteamApiArgument('include_appinfo')]
+    #[SteamApiArgument('include_appinfo', true)]
     protected $includeAppInfo;
 
     /**
      * @var boolean By default, free games like Team Fortress 2 are excluded (as technically everyone owns them). If include_played_free_games is set, they will be returned if the player has played them at some point. This is the same behavior as the games list on the Steam Community.
      */
-    #[SteamApiArgument('include_played_free_games')]
+    #[SteamApiArgument('include_played_free_games', true)]
     protected $includePlayedFreeGames;
 
     /**
      * @var array You can optionally filter the list to a set of appids. Note that these cannot be passed as a URL parameter, instead you must use the JSON format described in Steam_Web_API#Calling_Service_interfaces. The expected input is an array of integers (in JSON: "appids_filter: [ 440, 500, 550 ]" )
      */
-    #[SteamApiArgument('appids_filter')]
+    #[SteamApiArgument('appids_filter', true)]
     protected $appIdsFilter;
 
     public function getMethodName(): string
@@ -55,6 +55,7 @@ class SteamApiGetOwnedGamesV1Method extends AbstractSteamApiMethod
     }
 
     /**
+     * Get 64-bit Steam ID to return friend list for.
      * @return int|string
      */
     public function getSteamId(): int|string
@@ -63,6 +64,7 @@ class SteamApiGetOwnedGamesV1Method extends AbstractSteamApiMethod
     }
 
     /**
+     * Set 64-bit Steam ID to return friend list for.
      * @param int|string $steamId
      * @return SteamApiGetOwnedGamesV1Method
      */
@@ -73,6 +75,7 @@ class SteamApiGetOwnedGamesV1Method extends AbstractSteamApiMethod
     }
 
     /**
+     * Is include game name and logo information in the output. The default is to return appids only.
      * @return bool
      */
     public function isIncludeAppInfo(): bool
@@ -81,6 +84,7 @@ class SteamApiGetOwnedGamesV1Method extends AbstractSteamApiMethod
     }
 
     /**
+     * Set is include game name and logo information in the output. The default is to return appids only.
      * @param bool $includeAppInfo
      * @return SteamApiGetOwnedGamesV1Method
      */
@@ -91,6 +95,8 @@ class SteamApiGetOwnedGamesV1Method extends AbstractSteamApiMethod
     }
 
     /**
+     * By default, free games like Team Fortress 2 are excluded (as technically everyone owns them). If include_played_free_games is set, they will be returned if the player has played them at some point. This is the same behavior as the games list on the Steam Community.
+     *
      * @return bool
      */
     public function isIncludePlayedFreeGames(): bool
@@ -99,6 +105,8 @@ class SteamApiGetOwnedGamesV1Method extends AbstractSteamApiMethod
     }
 
     /**
+     * By default, free games like Team Fortress 2 are excluded (as technically everyone owns them). If include_played_free_games is set, they will be returned if the player has played them at some point. This is the same behavior as the games list on the Steam Community.
+     *
      * @param bool $includePlayedFreeGames
      * @return SteamApiGetOwnedGamesV1Method
      */
@@ -109,6 +117,8 @@ class SteamApiGetOwnedGamesV1Method extends AbstractSteamApiMethod
     }
 
     /**
+     * You can optionally filter the list to a set of appids. Note that these cannot be passed as a URL parameter, instead you must use the JSON format described in Steam_Web_API#Calling_Service_interfaces. The expected input is an array of integers (in JSON: "appids_filter: [ 440, 500, 550 ]" )
+     *
      * @return array
      */
     public function getAppIdsFilter(): array
@@ -117,6 +127,8 @@ class SteamApiGetOwnedGamesV1Method extends AbstractSteamApiMethod
     }
 
     /**
+     * You can optionally filter the list to a set of appids. Note that these cannot be passed as a URL parameter, instead you must use the JSON format described in Steam_Web_API#Calling_Service_interfaces. The expected input is an array of integers (in JSON: "appids_filter: [ 440, 500, 550 ]" )
+     *
      * @param array $appIdsFilter
      * @return SteamApiGetOwnedGamesV1Method
      */
